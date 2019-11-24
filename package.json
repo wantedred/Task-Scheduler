@@ -11,7 +11,6 @@
   "author": "Tristan Wynn",
   "license": "ISC",
   "dependencies": {
-    "exports": "0.0.1",
-    "mysql2": "^1.7.0"
+    "exports": "0.0.1"
   }
 }
