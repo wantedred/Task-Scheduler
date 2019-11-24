@@ -5,26 +5,40 @@ Here's how to run the task
 First make sure to add this at the top
 
 ```javascript
-const TaskManager = require('TaskManager');
+const TaskManager = require('task-scheduler-background');
 ```
 
 Then anywhere in your node application you can submit a task by doing this
 
 ```javascript
-TaskManager.submitTask("Task Name", function() {
-    doSomething();
+TaskManager.submitTask("Example Task", function() {
 
+    if (x > 11) {
+        return TaskManager.STATE.ERROR;
+    } else if (x === 10) {
+        return TaskManager.STATE.OFFLINE;
+    }
+
+    x ++;
     return TaskManager.STATE.ONLINE;
+
 }, 1, TaskManager.TimeUnits.SECONDS);
 ```
 
 If you ever need the name of the task inside your method you can specify it by doing this
 
 ```javascript
-TaskManager.submitTask("Task Name", function(name) {
-    console.log('Task Name: ' + name);
+TaskManager.submitTask("Example Task", function() {
 
+    if (x > 11) {
+        return TaskManager.STATE.ERROR;
+    } else if (x === 10) {
+        return TaskManager.STATE.OFFLINE;
+    }
+
+    x ++;
     return TaskManager.STATE.ONLINE;
+
 }, 1, TaskManager.TimeUnits.SECONDS);
 ```
 
@@ -43,5 +57,3 @@ TaskManager.STATE.ONLINE - keeps running
 TaskManager.STATE.OFFLINE - stops running
 TaskManager.STATE.ERROR - stops the task and says which task ran into an error
 ```
-
-If you need anymore examples please look in the app.js file

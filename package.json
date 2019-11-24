@@ -1,10 +1,10 @@
 {
   "name": "task-scheduler-background",
-  "version": "0.0.3",
+  "version": "0.0.6",
   "repository": {"url": "https://github.com/wantedred/Task-Scheduler"},
   "keywords": ["universal scheduler", "background tasks", "task-scheduler", "timers", "intervals"],
   "description": "",
-  "main": "app.js",
+  "main": "TaskManager.js",
   "type": "module",
   "scripts": {
     "test": "node app.js",
