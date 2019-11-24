@@ -1,24 +1,18 @@
-const ConvertTime = require("./convert-timing");
+const TaskManager = require("./TaskManager");
 
-// import {sayHi} from "./convert-timing.js";
-
-console.log("Starting all side cron jobs");
-
-function test(test, delay, timeUnit = undefined) {
-    setInterval(() => {
-        test();
-    }, new ConvertTime(delay, timeUnit).returnTime());
-}
+console.log("Starting all side tasks");
 
 var x = 0;
 
-test(function() {
-    if (x == 10) {
-        clearInterval(this);
+TaskManager.submitTask("Example Task", function() {
+
+    if (x === 10) {
+        return TaskManager.STATE.OFFLINE;
     }
+
     x ++;
-    console.log("Value of X: " + x);
-}, 1, "seconds");
+    return TaskManager.STATE.ONLINE;
 
+}, 1, TaskManager.TimeUnits.SECONDS);
 
-console.log("Running all side cron jobs");
+console.log("Running all side tasks");

@@ -1,4 +1,4 @@
-class ConvertTime {
+class Task {
 
     /**
      * This is the constructor to pass values to convert the timing to times such as:
@@ -16,11 +16,14 @@ class ConvertTime {
      */
     returnTime() {
         switch (this.conversion) {
-            case 'hours':
+            case 'days':
                 return (this.time * 1000 * 60 * 60 * 24);
 
-            case 'minutes':
+            case 'hours':
                 return (this.time * 1000 * 60 * 60);
+
+            case 'minutes':
+                return (this.time * 1000 * 60);
 
             case 'seconds':
                 return (this.time * 1000);
@@ -31,7 +34,21 @@ class ConvertTime {
     }
 }
 
-module.exports = ConvertTime;
-// export function sayHi(message) {
-//     console.log(message);
-// }
+const PROPERTIES = {
+    TIMES: {
+        MILLISECONDS: 'milliseconds',
+        SECONDS: 'seconds',
+        MINUTES: 'minutes',
+        HOURS: 'hours',
+        DAYS: 'days'
+    },
+    FLAGS: {
+        ONLINE: 'online',
+        OFFLINE: 'offline',
+        ERROR: 'error'
+    }
+}
+
+module.exports = Task;
+module.exports.times = PROPERTIES.TIMES;
+module.exports.flags = PROPERTIES.FLAGS;
