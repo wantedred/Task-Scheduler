@@ -4,13 +4,13 @@ It's very easy to start running tasks in the background of your node application
 Here's how to run the task
 First make sure to add this at the top
 
-```
+```javascript
 const TaskManager = require('TaskManager');
 ```
 
 Then anywhere in your node application you can submit a task by doing this
 
-```
+```javascript
 TaskManager.submitTask("Task Name", function() {
     doSomething();
 
@@ -20,7 +20,7 @@ TaskManager.submitTask("Task Name", function() {
 
 If you ever need the name of the task inside your method you can specify it by doing this
 
-```
+```javascript
 TaskManager.submitTask("Task Name", function(name) {
     console.log('Task Name: ' + name);
 
@@ -29,7 +29,7 @@ TaskManager.submitTask("Task Name", function(name) {
 ```
 
 There's five different mearsurements of time you can specify
-```
+```javascript
 TaskManager.TimeUnits.MILLISECONDS
 TaskManager.TimeUnits.SECONDS
 TaskManager.TimeUnits.MINUTES
@@ -38,8 +38,10 @@ TaskManager.TimeUnits.DAYS
 ```
 
 Also there's three different States the task can be in
-```
+```javascript
 TaskManager.STATE.ONLINE - keeps running
 TaskManager.STATE.OFFLINE - stops running
 TaskManager.STATE.ERROR - stops the task and says which task ran into an error
 ```
+
+If you need anymore examples please look in the app.js file

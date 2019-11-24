@@ -6,7 +6,9 @@ var x = 0;
 
 TaskManager.submitTask("Example Task", function() {
 
-    if (x === 10) {
+    if (x > 11) {
+        return TaskManager.STATE.ERROR;
+    } else if (x === 10) {
         return TaskManager.STATE.OFFLINE;
     }
 
