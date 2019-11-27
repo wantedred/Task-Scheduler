@@ -28,7 +28,7 @@ TaskManager.submitTask("Example Task", function() {
 If you ever need the name of the task inside your method you can specify it by doing this
 
 ```javascript
-TaskManager.submitTask("Example Task", function() {
+TaskManager.submitTask("Example Task", function(name) {
 
     if (x > 11) {
         return TaskManager.STATE.ERROR;
@@ -37,6 +37,7 @@ TaskManager.submitTask("Example Task", function() {
     }
 
     x ++;
+    console.log('task: ' + name);
     return TaskManager.STATE.ONLINE;
 
 }, 1, TaskManager.TimeUnits.SECONDS);
